@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.3/phpunit.xsd"
+    colors="true"
+    verbose="true"
+    backupGlobals="false"
+    disallowTodoTests="true"
+    bootstrap="tests/bootstrap.php"
+    beStrictAboutTodoAnnotatedTests="true"
+    beStrictAboutCoversAnnotation="true"
+    beStrictAboutOutputDuringTests="true"
+    beStrictAboutTestsThatDoNotTestAnything="true"
+    processIsolation="false"
+>
+    <php>
+        <env name="KERNEL_CLASS" value="App\Kernel" />
+        <env name="APP_ENV" value="test"/>
+        <ini name="memory_limit" value="1G" />
+    </php>
+    <testsuites>
+        <testsuite name="ResponseBuilder">
+            <directory suffix="Test.php">Tests</directory>
+        </testsuite>
+    </testsuites>
+    <listeners>
+        <listener class="\MyBuilder\PhpunitAccelerator\TestListener"/>
+    </listeners>
+</phpunit>
